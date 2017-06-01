@@ -1,15 +1,5 @@
-# Minimal reasonml config
-
-This repo contains the minimum amount of configuration to run:
-* reasonml to javascript transpilation
-* webpack-dashboard & bundle reports
-* browser-sync server with automatic reloading on source changes
-
-## Fork / clone repo and install dependencies
-```
-$ git clone https://github.com/rlucha/reasonml-minimal-config .
-$ npm i
-```
+## Exercises based on 
+http://facebook.github.io/reason/jsConversion.html#converting-your-javascript-to-reason
 
 ## Running the development environment
 ```
