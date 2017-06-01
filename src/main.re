@@ -49,3 +49,4 @@ let sum_by_2 = sum 2;
 Js.log (Array.map sum_by_2 my_array);
 
 Js.log (lodash##map my_array sum_by_2);
+
