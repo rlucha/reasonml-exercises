@@ -1,5 +1,5 @@
 {
   "name": "test",
   "sources" : { "dir" : "src"},
-  "bs-dependencies": []
+  "bs-dependencies": ["bs-json"]
 }

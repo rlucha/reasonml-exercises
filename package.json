@@ -15,6 +15,7 @@
     "babel-loader": "^7.0.0",
     "babili-webpack-plugin": "^0.1.1",
     "browser-sync": "^2.18.12",
+    "bs-json": "git+https://github.com/BuckleTypes/bs-json.git",
     "bs-loader": "^1.2.5",
     "bs-platform": "^1.7.1",
     "concurrently": "^3.4.0",

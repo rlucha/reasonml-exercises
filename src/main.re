@@ -14,7 +14,6 @@ Js.log "Hello World";
      type document;
      external document : document = "" [@@bs.val];
    }; */
-/* let json_example = [%bs.obj { foo = "bar"; baz = 42}]; */
 /* Using strings as keys creates a js obj */
 let u = {"x": {"y": {"z": 3}}};
 
@@ -42,11 +41,42 @@ external lodash : 'a = "" [@@bs.module];
 
 let my_array = [|1, 2, 3, 4, 5, 6|];
 
+let rec range i j =>
+  if (i > j) {
+    []
+  } else {
+    [i, ...range (i + 1) j]
+  };
+
 let sum x y => x + y;
 
 let sum_by_2 = sum 2;
 
-Js.log (Array.map sum_by_2 my_array);
+let exp5div7 x y => (float_of_int x *\* float_of_int y |> int_of_float) * 5 / 7;
 
-Js.log (lodash##map my_array sum_by_2);
+external performance : 'a = "" [@@bs.val];
 
+let nums = Array.of_list (range 0 10000);
+
+let t0 = performance##now ();
+
+Js.log (Array.map (exp5div7 3) nums);
+
+let t1 = performance##now ();
+
+Js.log ("Call to doSomething took " ^ string_of_int (t1 - t0) ^ " milliseconds.");
+
+let nums = lodash##range 0 10000;
+
+let t0 = performance##now ();
+
+Js.log (lodash##map nums (exp5div7 3));
+
+let t1 = performance##now ();
+
+Js.log ("Call to doSomething took " ^ string_of_int (t1 - t0) ^ " milliseconds.");
+
+Js.log "nums";
+
+/* Transform List to Js Array */
+/* Js.log (Js.Vector.ofList nums); */
